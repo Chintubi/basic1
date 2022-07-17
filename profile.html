@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+   
+    <div class="container">
+    <div class="navbar">
+        <div class="logo ">
+           <a href="Index.html"> <img src="images/logo.png" width="125px"></a>
+
+        </div>
+         <nav>
+            <ul>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="">Favorite</a></li>
+                <li><a href="Shopdetail.html">Orders</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+         </nav>
+         <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>&nbsp;&nbsp;&nbsp;
+         <a href="profile.html"><img src="images/Profile.jpg" width="30px" height="30px"></a>
+         
+     </div>
+   </div>
+ <div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="images/image1.png" width="100%">
+            </div>
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login/</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>
+                    <form id="Loginform" onsubmit="return valid()">
+                        <p class="fnt1">User:</p>
+                        <input type="text" placeholder="UserName" id="box1">
+                        <p class="fnt2">Password:</p>
+                        <input type="password" placeholder="Password" id="box2">
+                        <button type="submit" class="btn" id="login">Login</button>
+                        <a href="">Forgot Password</a>
+
+
+                    </form  method="get" onsubmit="return validateForm()" action="login.html">
+                    <form id="Registration">
+                        <input type="text" placeholder="UserName" id="name">
+                        <input type="email" placeholder="Email" id="email">
+                        <input type="password" placeholder="Password" id="pass1">
+                        <input type="password" placeholder="Re-enter Password" id="pass2">
+                        <button type="submit" class="btn" id="sbmt">Register</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ </div>
+   <script>
+    var Loginform=document.getElementById("Loginform");
+    var Registration=document.getElementById("Registration");
+    var Indicator=document.getElementById("Indicator");
+
+        function register(){
+            Registration.style.transform="translateX(0px)";
+            Loginform.style.transform="translateX(0px)";
+            Indicator.style.transform="translateX(100px)";
+        }
+        function login(){
+            Registration.style.transform="translateX(300px)";
+            Loginform.style.transform="translateX(300px)";
+            Indicator.style.transform="translateX(0px)";
+        }
+
+        function valid()
+{
+  var u = document.getElementById("box1").value;
+  if (u == "") 
+  {
+     alert("Create a Username");
+ 	   return false;
+  }
+ if (u.length<5) 
+  {
+    alert("Username must be more than 5 character");
+    return false;
+  }
+  if (u.length>10) 
+  {
+    alert("Username must not be more than 10 character");
+    return false;
+  }
+
+  var p = document.getElementById("box2").value;
+
+  if (p == "") 
+	{
+     alert("Please Fill The Password");
+     return false;
+	}
+
+	if (p.length<5) 
+	{
+		alert("password must more of 5 character");
+		return false;
+	}
+
+	if (p.length>20) 
+	{
+		alert("password must less than 20");
+        return false;
+	}
+
+}
+function validateForm() 
+{
+  var x = document.getElementById("name").value;
+  var alp = /^[0-9A-Za-z]+$/;
+  if (x == "") 
+  {
+    alert("Please Fill The UserName");
+    return false;  
+  }
+  if (x.length<5) 
+  {
+    alert("Name must be more than 5 character");
+    return false;
+  }
+ if (x.length>10) 
+  {
+    alert("Username must not be more than 10 character");
+    return false;
+  }
+
+  var e = document.getElementById("email").value; 
+  if (e.indexOf('@')<=0) 
+  {
+    alert("Invalid Email");
+    return false;
+  }
+  
+    var b = document.getElementById("pass1").value;
+	var c = document.getElementById("pass2").value;
+
+	if (b=="") 
+	{
+       alert("Please Fill The Password");
+       return false;
+	}
+
+	if (b.length<5) 
+	{
+		alert("password must more of 5 character");
+		return false;
+	}
+  if (c.length<5) 
+  {
+    alert("password must more of 5 character");
+    return false;
+  }
+
+	if (b.length>20) 
+	{
+		alert("password must less than 20");
+        return false;
+	}
+
+	if (b!=c) 
+	{
+       alert("Password must be same");
+       return false;
+	}
+}
+
+
+
+   </script>
+ 
+
+
+</body>
+</html>
